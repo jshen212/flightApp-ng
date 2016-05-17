@@ -1,0 +1,22 @@
+<div class="container" ng-controller="landingCtrl">
+  <!-- departure date field -->
+  <div class="departDate">
+    <h3>Depart Date</h3>
+    <datepicker>
+      <input ng-model="flightInfo.departDate" type="text"/>
+    </datepicker>
+  </div>
+
+  <!-- departure city field -->
+  <div class="departCity">
+    <h3>Depart City</h3>
+    <input type="text" ng-model="flightInfo.departCity">
+  </div>
+
+  <div class="arrivalCity">
+    <h3>Arrival City</h3>
+    <input type="text" ng-model="flightInfo.arrivalCity">
+  </div>
+
+  <button class="btn btn-success" ng-click="sendFlightInfo()">Submit</button>
+</div>
