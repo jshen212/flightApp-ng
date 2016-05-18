@@ -1,16 +1,23 @@
-flightApp.factory('landingFact', function($http) {
-  var getFlightPrices = function(flightInfo) {
-    return $http({
-      method: 'POST',
-      url: 'api/flights/getFlightPrices',
-      data: flightInfo
-    }).then(function(res) {
-      console.log(res.data), function error(response) {
-        console.log('error', response);
-      });
-    };
+// var api = require('./config.js');
 
-    return {
-      getFlightPrices: getFlightPrices
-    };
-  });
+flightApp.factory('landingFact', function($http) {
+
+  var getFlightPrices = function(flightInfo) {
+    console.log(flightInfo);
+    var url = 'http://terminal2.expedia.com:80/x/flights/v3/search/1/' + flightInfo.departCity + '/' + flightInfo.arrivalCity + '/' + flightInfo.departDate + '?apikey=gKs8mfujX4qY5OWe2mqocw6vM2xAIXMO';
+
+    return $http({
+      method: 'GET',
+      url: url,
+    }).success(function(response) {
+      console.log(response);
+      return response;
+    }).error(function(response) {
+      console.log('error: ' + response);
+    });
+  };
+
+  return {
+    getFlightPrices: getFlightPrices
+  };
+});

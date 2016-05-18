@@ -13,7 +13,7 @@ flightApp.controller('landingCtrl', function($scope, $state, landingFact) {
       arrivalCity: arrivalCity
     }
 
-    landingFact.getFlightPrices(flightInfo);
+    $scope.flightPrices = landingFact.getFlightPrices(flightInfo).recommended.trends;
 
   };
 

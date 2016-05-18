@@ -20,3 +20,7 @@
 
   <button class="btn btn-success" ng-click="sendFlightInfo()">Submit</button>
 </div>
+
+<div ng-repeat="price in flightPrices">
+  <span>{{price.max}}{{price.median}}</span>
+</div>

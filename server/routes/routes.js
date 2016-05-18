@@ -1,7 +1,7 @@
+var app = require('../server.js');
+var jsonParser = require('body-parser').json();
+var flightController = require('../controllers/flightController.js');
+
 module.exports = function(app, express) {
-  var flightRouter = express.Router();
-
-  app.use('/api/flights', flightRouter)
-
-  require('./flightRoute.js')(flightRouter);
+  app.post('/api/flights/getFlightPrices',jsonParser, flightController.getFlightPrices);
 }
